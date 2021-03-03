@@ -6,15 +6,18 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-md-8">
-                    <h2 class="card-title">Listado de vehículos registrados en la base de datos</h2>
+                    <div class="card-title">
+                        <h2>Vehículo: {{ $vehicle->brand }} {{ $vehicle->model }}</h2>
+                    </div>
                 </div>
                 <div class="col-md-4">
                     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <a class="btn btn-primary" href="{{ route('vehicles.create') }}">+ Nuevo</a>
+                        <a class="btn btn-primary" href="{{ route('vehicles.index') }}">< Regresar</a>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="card-body">
             <table class="table table-striped">
 
@@ -23,37 +26,34 @@
                         <th>Vehículo</th>
                         <th>Información</th>
                         <th>Descripción</th>
-                        <th>Acciones</th>
                     </tr>
                     
                 </thead>
 
                 <tbody>
-                    @forelse ($vehiculos as $vehicle)
                     <tr>
                         <td>
-                            <a class="btn btn-info btn-small" href="{{ route('vehicles.show', $vehicle->id) }}">
-                                <h4>{{ $vehicle->brand }} {{ $vehicle->model }}</h4></td>
-                            </a>
+                            <p>Imagen</p>
                         <td>
                             <p><b>Número de serie: </b>{{ $vehicle->serialNumber }}</p>
                             <p><b>Color: </b>{{ $vehicle->color }}</p>
                             <p><b>Puertas: </b>{{ $vehicle->numberOfDoors }}</p>
                             <p><b>Asientos: </b>{{ $vehicle->numberOfSeats }}</p>
-                            <p><b>Matrícula: </b>{{ $vehicle->carRegistration }}</p>
+                            <p class="text-uppercase"><b class="text-capitalize">Matrícula: </b>{{ $vehicle->carRegistration }}</p>
                         </td>
                         <td><p>{{ $vehicle->description }}</p></td>
-                        <td>ver | editar | eliminar</td>
-                    @empty
-                        <h1>La tabla no tiene datos</h1>
                     </tr>
-                    @endforelse
+                
                 </tbody>
             </table>
         </div>
+        <div class="card-footer">
+            <div class="col">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a class="btn btn-primary" href="{{ route('vehicles.edit', $vehicle->id) }}">Editar</a>
+                    <a class="btn btn-danger" href="{{ route('vehicles.destroy', $vehicle->id) }}">Eliminar</a>
+                </div>
+            </div>
+        </div>
       </div>
-
-
-    
-
 </div>

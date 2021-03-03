@@ -14,8 +14,8 @@ class VehicleController extends Controller
      */
     public function index()
     {
-        $vehicles = Vehicle::all();
-        return view('vehicles.index', compact('vehicles'));
+        $vehiculos = Vehicle::all();
+        return view('vehicles.index', compact('vehiculos'));
     }
 
     /**
@@ -25,7 +25,7 @@ class VehicleController extends Controller
      */
     public function create()
     {
-        //
+        return view('vehicles.create');
     }
 
     /**
@@ -36,7 +36,9 @@ class VehicleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $vehicle = request()->except('_token');
+        Vehicle::insert($vehicle);
+        return view('vehicles.index');
     }
 
     /**
@@ -47,7 +49,7 @@ class VehicleController extends Controller
      */
     public function show(Vehicle $vehicle)
     {
-        //
+        return view('vehicles.show', compact('vehicle'));
     }
 
     /**
@@ -58,7 +60,7 @@ class VehicleController extends Controller
      */
     public function edit(Vehicle $vehicle)
     {
-        //
+        return view('vehicles.edit', compact('vehicle'));
     }
 
     /**
@@ -70,7 +72,9 @@ class VehicleController extends Controller
      */
     public function update(Request $request, Vehicle $vehicle)
     {
-        //
+        $vehicle = request()->except('_token');
+        Vehicle::whereId($vehicle)->update($vehicle);
+        return view('vehicles.index');
     }
 
     /**
