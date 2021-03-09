@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Vehicle;
+use App\Models\Support;
 use Illuminate\Http\Request;
 
-class VehicleController extends Controller
+class SupportController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class VehicleController extends Controller
      */
     public function index()
     {
-        $vehicles = Vehicle::all();
-        return view('vehicles.index', compact('vehicles'));
+        return view('support.index');
     }
 
     /**
@@ -25,7 +24,7 @@ class VehicleController extends Controller
      */
     public function create()
     {
-        return view('vehicles.create');
+        //
     }
 
     /**
@@ -36,56 +35,51 @@ class VehicleController extends Controller
      */
     public function store(Request $request)
     {
-        $vehicle = request()->except('_token');
-        Vehicle::insert($vehicle);
-        return redirect()->to(url('/vehicles'));
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Vehicle  $vehicle
+     * @param  \App\Models\Support  $support
      * @return \Illuminate\Http\Response
      */
-    public function show(Vehicle $vehicle)
+    public function show(Support $support)
     {
-        return view('vehicles.show', compact('vehicle'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Vehicle  $vehicle
+     * @param  \App\Models\Support  $support
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vehicle $vehicle)
+    public function edit(Support $support)
     {
-        return view('vehicles.edit', compact('vehicle'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Vehicle  $vehicle
+     * @param  \App\Models\Support  $support
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vehicle $vehicle)
+    public function update(Request $request, Support $support)
     {
-        $dataVehicle = request()->except('_token');
-        $vehicle->update($dataVehicle);
-        return redirect()->to(url('/vehicles'));
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Vehicle  $vehicle
+     * @param  \App\Models\Support  $support
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Vehicle $vehicle)
+    public function destroy(Support $support)
     {
-        $vehicle->delete();
-        return redirect()->to(url('/vehicles'));
+        //
     }
 }

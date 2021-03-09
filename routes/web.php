@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\SupportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +21,6 @@ Route::get('/', function () {
 
 
 Route::resources([
-    'vehicles' => VehicleController::class,
+    'vehicles'  => VehicleController::class,
+    'soporte'   => SupportController::class,
 ]);

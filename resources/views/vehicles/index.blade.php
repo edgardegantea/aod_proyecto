@@ -23,13 +23,13 @@
                         <th>Vehículo</th>
                         <th>Información</th>
                         <th>Descripción</th>
-                        <th>Acciones</th>
+                        
                     </tr>
                     
                 </thead>
 
                 <tbody>
-                    @forelse ($vehiculos as $vehicle)
+                    @forelse ($vehicles as $vehicle)
                     <tr>
                         <td>
                             <a class="btn btn-info btn-small" href="{{ route('vehicles.show', $vehicle->id) }}">
@@ -43,7 +43,7 @@
                             <p><b>Matrícula: </b>{{ $vehicle->carRegistration }}</p>
                         </td>
                         <td><p>{{ $vehicle->description }}</p></td>
-                        <td>ver | editar | eliminar</td>
+                        
                     @empty
                         <h1>La tabla no tiene datos</h1>
                     </tr>
